@@ -13,3 +13,24 @@ sr.setModel("edsr", 4)
 result = sr.upsample(image)
 # Save the image
 cv2.imwrite("./upscaled.png", result)
+cv2.imshow( " Resized image (CNN) " , result)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+ 
+img = image 
+ 
+print ( ' Original Dimensions : ' ,img.shape)
+ 
+
+width = int(img.shape[1] *4 )
+height = int(img.shape[0] * 4 )
+dim = (width, height)
+ # resize image 
+resized = cv2.resize(img, dim) #default inter_linear
+ 
+print ( ' Resized Dimensions : ' ,resized.shape)
+ # Save the image
+cv2.imwrite("./resized.png", resized)
+cv2.imshow( " Resized image (interpolation) " , resized)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
